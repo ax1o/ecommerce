@@ -1,6 +1,7 @@
 package com.Bazzar.Bazzar.Model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name="orders")
 public class Ordered {
 
@@ -35,6 +37,6 @@ public class Ordered {
     Customer customer;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
-    List<Item> items = new ArrayList<>();
+    List<Item> orderedItems = new ArrayList<>();
 
 }
